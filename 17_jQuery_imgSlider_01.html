@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Image Slider</title>
+    <link href="css/slider1.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            // controls>li를 click하면 img_list가 왼쪽을 기준으로 좌우로 움직인다
+            // next_btn과 perv_btn을 누르면 img_list가 왼쪽을 기준으로 좌우로 움직인다
+            // setInterval로 자동으로 img_list가 다음 사진으로 이동한다
+            // play_btn을 click하면 setInterval이 정지 되거나 다시 재생된다
+            // play_btn의 이미지가 바뀐다
+            var winWidth = $(window).width()
+
+            function slider(index){
+                $('.img_list').animate({left:-winWidth*index},1000,function(){
+                    $('.text_list>li').eq(index).animate({marginLeft:0 , opacity:1 },1000).siblings().css('margin-left','-100px').css('opacity','0')
+                })                   
+                $('.controls>li').eq(index).addClass('select').siblings().removeClass('select')
+            }
+
+            $('.controls>li').each(function(index){
+                $(this).click(function(){
+                    slider(index)
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <section id="topBanner">
+        <div class="img_wrap">
+            <ul class="img_list">
+                <li><img src="img/top_banner0.jpg" alt=""></li>
+                <li><img src="img/top_banner1.jpg" alt=""></li>
+                <li><img src="img/top_banner2.jpg" alt=""></li>
+                <li><img src="img/top_banner3.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div class="text_wrap">
+            <ul class="text_list">
+                <li><h2>TOP BANNER-1</h2></li>
+                <li><h2>TOP BANNER-2</h2></li>
+                <li><h2>TOP BANNER-3</h2></li>
+                <li><h2>TOP BANNER-4</h2></li>
+            </ul>
+        </div>
+        <ul class="controls">
+            <li class="select">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div class="play_btn"><img src="img/playbtn_on.png" alt="재생"></div>
+        <div class="prev_btn"><img src="img/prev_btn.png" alt="이전"></div>
+        <div class="next_btn"><img src="img/next_btn.png" alt="다음"></div>
+    </section>
+</body>
+</html>
