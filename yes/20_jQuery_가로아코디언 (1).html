@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 가로 아코디언</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        li{list-style: none;}
+
+        #service{position: relative; height: 500px; background-color: #000;}
+        #service>ul::after{content: ""; display: block; clear: both;}
+        #service>ul>li{position: relative; width: 5%; cursor: pointer; background-size: cover;height: 500px; float: left; transition: 0.5s; transition-timing-function: linear;}
+        #service>ul>li h2.v_title{ position: absolute; left: 50%; top: 50%;  transform: translate(-50%,-50%);}
+        #service>ul>li h2.h_title{display: none;}
+        #service>ul>li .over_box{position: absolute; width: 100%; height: 100%; left: 0; top: 0; background-color: rgba(0,0,0,0.5);}
+        #service>ul>li.select{width: 70%; opacity: 1;}
+        #service>ul>li.select h2.v_title{display: none;}
+        #service>ul>li.select h2.h_title{color: #FFF; font-size: 40px; text-align: center; padding-top: 100px; position: absolute; width: 50%; height: 50%;  left: 50%; top: 50%; transform: translate(-50%,-50%); background-color: rgba(0,0,0,0.5); box-sizing: border-box; display: block; }
+        #service>ul>li.select .over_box{display: none;}
+        #service>ul>li:first-child{background-image: url(img/acco0.jpg);}        
+        #service>ul>li:nth-child(2){background-image: url(img/acco1.jpg);}
+        #service>ul>li:nth-child(3){background-image: url(img/acco2.jpg);}
+        #service>ul>li:nth-child(4){background-image: url(img/acco3.jpg);}
+        #service>ul>li:nth-child(5){background-image: url(img/acco4.jpg);}
+        #service>ul>li:nth-child(6){background-image: url(img/acco5.jpg);}
+        #service>ul>li:nth-child(7){background-image: url(img/acco6.jpg);}        
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $('#service>ul>li').click(function(){
+                // $(this).animate({width:'70%'},500,'linear').siblings().animate({width:'5%'},500,'linear')
+                $(this).addClass('select').siblings().removeClass('select')
+            })
+        })
+    </script>
+</head>
+<body>
+<section id="service">
+    <ul>
+        <li class="select">
+            <div class="over_box"></div>
+            <h2 class="v_title"><img src="img/aco_title0.png" alt="SERVICE-0"></h2>
+            <h2 class="h_title">SERVICE-0</h2></li>
+        <li>
+            <div class="over_box"></div>
+            <h2 class="v_title"><img src="img/aco_title1.png" alt="SERVICE-1"></h2>
+            <h2 class="h_title">SERVICE-1</h2></li>
+        <li>
+            <div class="over_box"></div>
+            <h2 class="v_title"><img src="img/aco_title2.png" alt="SERVICE-2"></h2>
+            <h2 class="h_title">SERVICE-2</h2></li>
+        <li>
+            <div class="over_box"></div>
+            <h2 class="v_title"><img src="img/aco_title3.png" alt="SERVICE-3"></h2>
+            <h2 class="h_title">SERVICE-3</h2></li>
+        <li>
+            <div class="over_box"></div>
+            <h2 class="v_title"><img src="img/aco_title4.png" alt="SERVICE-4"></h2>
+            <h2 class="h_title">SERVICE-4</h2></li>
+        <li>
+            <div class="over_box"></div>
+            <h2 class="v_title"><img src="img/aco_title5.png" alt="SERVICE-5"></h2>
+            <h2 class="h_title">SERVICE-5</h2></li>
+        <li>
+            <div class="over_box"></div>
+            <h2 class="v_title"><img src="img/aco_title6.png" alt="SERVICE-6"></h2>
+            <h2 class="h_title">SERVICE-6</h2></li>
+    </ul>
+</section>
+</body>
+</html>
