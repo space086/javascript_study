@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today&apos;s perfume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+        /* font-family: 'Nanum Myeongjo', serif; */
+
+        *{margin:0; padding:0;}
+        body{background-color: #dae5f2;}
+
+        #header{position: relative; height: 70px; text-align: center; }
+        #header h1{margin-top: 10px;}
+
+        #contents{position: relative; width: 100%; height: 440px;}
+        #contents #img_wrap{position: absolute;  left: 50%; transform: translateX(-50%);} 
+        #contents #pfName{position: relative; margin: 0 auto; text-align: center; font-size: 16px; font-weight: bold; font-family: 'Nanum Myeongjo', serif; top:330px;}
+        #contents #stopBtn{position: absolute; bottom: 0; left: 50%; margin-left: -120px; background-image: url(img/stop.png); width: 56px; height:60px;}
+        #contents #playBtn{position: absolute; bottom: 0; left: 50%; margin-left:60px; background-image: url(img/play.png); width: 56px; height:60px;}
+
+        #footer{position: fixed; left: 0; bottom: 0; width: 100%; height: 40px; border-top: 1px solid #ccc; font-size: 12px; text-align: center; line-height: 40px; font-family: "돋움";}
+    </style>
+    <script>
+        window.onload=function(){
+            var pfImg = document.getElementById('pfImg')
+            var pfName = document.getElementById('pfName')
+            var stopBtn = document.getElementById('stopBtn')
+            var playBtn = document.getElementById('playBtn')
+            var pfNum = 0
+            var pfList = ['바이레도 벨벳헤이즈','톰포드 베네시안','산타마리아노벨라 아쿠아','조말론 잉글리쉬','입생로랑 리브르','조말론 사쿠라','구찌 메모아','딥디크 오르페옹','불리 1803','구찌 블룸']
+
+            function pfChange(){
+                pfNum++
+                if(pfNum>9){
+                    pfNum=0
+                }
+                pfImg.setAttribute('src','img/pf_'+pfNum+'.jpg')
+                pfName .innerHTML = pfList[pfNum]
+            }
+
+            pfAuto = setInterval(pfChange,100)
+
+            stopBtn.onclick=function(){
+                clearInterval(pfAuto)
+                event.preventDefault();
+            }
+            playBtn.onclick=function(){
+                clearInterval(pfAuto)
+                pfAuto=setInterval(pfChange,100)
+                return false 
+            }
+        }
+    </script>
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#"><img src="img/logo.png" alt="perfume"></a></h1>
+    </header>
+    <section id="contents">
+        <div id="img_wrap">
+            <img src="img/pf_0.jpg" alt="" id="pfImg">
+        </div>
+        <div id="pfName">향수</div>
+        <a href="#" id="stopBtn"></a>
+        <a href="#" id="playBtn"></a>
+    </section>
+    <footer id="footer">copyright &copy; Today&apos;s perfume All right reserved.</footer>
+</body>
+</html>

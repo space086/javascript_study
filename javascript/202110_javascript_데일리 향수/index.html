@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0;}
+        img{display: block;}
+        body{background-color: rgb(53, 114, 247);}
+
+        .intro{position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+        .intro img{width: 100%;}
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            //효과
+            $('.intro').fadeIn(500).delay(1000).fadeOut(500)
+
+            //5초후 이동
+            function goUrl(){
+		      location.href = "main.html"
+		      }
+            setTimeout(goUrl,5000)
+        })
+    </script>
+</head>
+<body>
+    <div class="intro">
+        <img src="img/logo.png" alt="로고">
+    </div>
+</body>
+</html>
