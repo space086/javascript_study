@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript 타이머 함수 시계</title>
+    <style>
+        *{margin: 0; padding: 0}
+        
+        .inner{position: relative; width:400px; padding:30px; background-color: #222 ; border: 1px solid #666; margin: 100px auto}
+        .inner::after{content: ""; display: block; clear: both}
+        #am{font-size: 55px; color: #EEE; float: left; margin-right: 30px}
+        #time{font-size:55px; color: #EEE;}
+        #year{font-size: 20px; color: #399; float: left; margin-right: 20px}
+        #day{font-size: 20px; color: #399}
+    </style>
+    <script>
+        window.onload=function(){
+            var am = document.getElementById('am')
+            var time = document.getElementById('time')
+            var year = document.getElementById('year')
+            var day = document.getElementById('day')
+            
+            var date = new Date()
+            var fullYear = date.getFullYear()
+            var mon = date.getMonth()+1  // 달만 0으로 시작하여 1을 더해 준다
+            var daily = date.getDate()
+            var hour = date.getHours()
+            var min = date.getMinutes()
+            var sec = date.getSeconds()
+            var week = date.getDay()
+            var weekString =['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] 
+            
+            if(hour>12){
+                am.innerHTML='오후'
+                time.innerHTML = (hour-12)+':'+min+':'+sec
+            }else if(hour==12){
+                am.innerHTML='오후'
+                time.innerHTML = hour+':'+min+':'+sec
+            }else{
+                am.innerHTML='오전'
+                time.innerHTML = hour+':'+min+':'+sec
+            }
+            
+            year.innerHTML = fullYear+'.'+mon+'.'+daily
+            day.innerHTML = weekString[week]
+        }    
+    </script>
+</head>
+<body>  
+    <div class="inner">            
+        <p id="am"></p>
+        <p id="time"></p>
+        <p id="year"></p>
+        <p id="day"></p>
+    </div> 
+</body>
+</html>
