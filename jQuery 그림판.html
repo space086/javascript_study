@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그림판</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        li{list-style: none;}
+
+        .wrap{position: relative; width: 400px; height: 400px; margin: 100px; border: 1px solid #ccc;}
+        .wrap>ul::after{content:''; display: block; clear: both;}
+        .wrap>ul>li{width: 20px; height: 20px; background-color: #fff; float: left;}
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+           for(var i=0; i<400; i++){
+                $('<li></li>').appendTo('.wrap>ul') // 유엘안에 엘아이 여러개 만들기
+           }
+           $('.wrap>ul>li').mousedown(function(){
+               $(this).css('background-color',color)
+           })
+           $('.btn').click(function(){
+               color = $('select>option:selected').val()
+           })
+           $('.reset').click(function(){
+               $('.wrap>ul>li').css('background-color','#fff')
+           })
+        })
+    </script>
+</head>
+<body>
+    <select>
+        <option value="#f00">RED</option>
+        <option value="#0f0">GREEN</option>
+        <option value="#00f">BULE</option>
+        <option value="#ff0">YELLOW</option>
+        <option value="#ff7f00">ORANGE</option>
+        <option value="#000">BLACK</option>
+        <option value="#fff">WHITE</option>
+    </select>
+    <button class="btn">선택</button>
+    <button class="reset">초기화</button>
+    <div class="wrap">
+        <ul>
+
+        </ul>
+    </div>
+</body>
+</html>
