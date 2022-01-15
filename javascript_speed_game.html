@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript mouseevent click</title>
+    <style>
+        #btn{width: 80px; height: 80px; background-color: #f00; color: #fff; border-radius: 40px; border:none; cursor: pointer;}
+        #btn:active{background-color: #900;}
+        h2{width: 300px; height: 300px; border: 1px solid #000; text-align: center; line-height: 300px; font-size: 100px;}
+    </style>
+    <script>
+        window.onload=function(){
+            var btn = document.getElementById('btn')
+            var count = document.getElementById('count')
+            var clickNum = 0
+
+            btn.onclick=function(){ //버튼을 클릭해서 숫자가 올라가는 명령
+                clickNum++
+                count.innerHTML = clickNum
+            }
+
+            function stopClick(){ // 버튼의 이벤트를 제거
+                btn.onclick=function(){
+                    return false
+                    
+                }
+            }
+            setTimeout(stopClick,5000)// 5초 뒤에 버튼 이벤트 제거 명령 실행
+        }
+
+        // 5초뒤에 클릭을 해도 숫자가 늘지 않는다
+    </script>
+</head>
+<body>
+    <h1>스피드 게임</h1>
+    <button id="btn">Click!</button>
+    <h2 id="count">0</h2>
+</body>
+</html>
