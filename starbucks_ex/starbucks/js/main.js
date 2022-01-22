@@ -1,9 +1,3 @@
-
-
-
-/**
- * 페이지 스크롤에 따른 요소 제어
- */
 // 페이지 스크롤에 영향을 받는 요소들을 검색!
 const badgeEl = document.querySelector('header .badges')
 const toTopEl = document.querySelector('#to-top')
