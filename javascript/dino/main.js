@@ -43,12 +43,18 @@ function frameRect(){
     var cactus = new Cactus();
     cactusS.push(cactus);
   }
-  cactusS.forEach((a)=>{
+  cactusS.forEach((a, i, o)=>{
+    //x좌표가 0미만이면 제거
+    if (a.x < 0) {
+      //제거
+      o.splice(i, 1)
+    }
     a.x--;
     a.draw();
   })
-
+  dino.y -= 2;
   dino.draw()
 }
 
 frameRect();
+
