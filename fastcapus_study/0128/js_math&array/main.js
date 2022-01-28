@@ -82,3 +82,24 @@ const fruits = ['apple', 'banana', 'cherry']
 // })
 
 // console.log(b)
+
+//includes() : 배열값에 인수로 사용되는 특정한 데이터가 포함되어 있는지 확인하는.
+
+//.push() .unshift() : 푸쉬는 값을 강제로 뒤에 넣는거 , unshift는 데이터 맨 앞에 붙여 넣는 것
+// 원본 수정됨 주의!
+
+// numbers.push(5)
+// console.log(numbers)
+
+// numbers.unshift(0)
+// console.log(numbers)
+
+//.reverse() : 순서가 뒤집어짐.
+// 원본 수정됨 주의
+
+//.splice() : 잘라서 지우기
+// 원본 수정됨 주의
+
+// numbers.splice(2,1) 
+// 원본 데이터의 2번째 아이템 1개만 지움 (0부터 시작하기 때문에 숫자 2 해당)
+// console.log(numbers)
