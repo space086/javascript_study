@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>평균 체중 구하기</title>
+  <script>
+    let userName = prompt("당신의 이름은?","");
+    let userHeight = prompt("당신의 키는?","0");
+    let userWeight = prompt("당신의 체중은?","0");
+
+    let average = (userHeight-100)*0.9;
+    let result = userWeight >= average-5 && userWeight <= average+5;
+    result = result?"적정 체중입니다.":"적정 체중이 아닙니다.";
+
+    console.log(userName+"님은"+ result);
+  </script>
+</head>
+<body>
+  <h1>Hello</h1>
+</body>
+</html>
